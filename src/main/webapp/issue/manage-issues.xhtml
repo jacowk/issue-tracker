@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:body>
+        <ui:composition template="../template/template.xhtml">
+            <ui:define name="content">
+                <div class="container my-4 text-center">
+                    <h3>Manage Issues</h3>
+
+                    <p>We are managing some issues here</p>
+
+                    <h:dataTable value="#{issueManagedBean.getIssueList()}" var="issue" class="table">
+                        <h:column>
+                            <f:facet name="id" class="thead-dark">ID</f:facet>
+                            #{issue.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="heading">Heading</f:facet>
+                            #{issue.heading}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="description">Description</f:facet>
+                            #{issue.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="heading">Remove</f:facet>
+                            <h:form id="remove-issue">
+                                <h:commandLink action="#{issueManagedBean.deleteIssue(issue)}" value="Remove" />
+                            </h:form>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="heading">Edit</f:facet>
+                            <h:form id="edit-issue">
+                                <h:commandLink action="#{issueManagedBean.editIssue(issue)}" value="Edit" />
+                            </h:form>
+                        </h:column>
+                    </h:dataTable>
+                    <br/><br/>
+                    <h:form>
+                        <h:commandButton action="#{pageController.addIssue}" value="Add Issue"/>&nbsp;&nbsp;
+                        <h:commandButton action="#{issueManagedBean.refreshIssueData}" value="Refresh Issue Data"/>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

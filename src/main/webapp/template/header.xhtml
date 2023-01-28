@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition>
+            <br/>
+            <header>
+                <h:form>
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                        <!-- Container wrapper -->
+                        <div class="container-fluid">
+                            <!-- Navbar brand -->
+                            <a class="navbar-brand" href="#">Issue Tracker</a>
+
+                            <!-- Toggle button -->
+                            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <!-- Collapsible wrapper -->
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <!-- Left links -->
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <h:commandLink class="nav-link active"
+                                                       aria-current="page"
+                                                       action="#{pageController.index}"
+                                                       value="Home"/>
+                                    </li>
+                                    <li class="nav-item">
+                                        <h:commandLink class="nav-link active"
+                                                       aria-current="page"
+                                                       action="#{pageController.manageIssues}"
+                                                       value="Manage Issues"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </h:form>
+            </header>
+        </ui:composition>
+    </body>
+</html>

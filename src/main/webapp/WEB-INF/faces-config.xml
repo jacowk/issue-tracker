@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+    <!-- 
+	<managed-bean>
+		<managed-bean-name>helloBean</managed-bean-name>
+		<managed-bean-class>com.mkyong.common.HelloBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	 -->
+
+    <navigation-rule>
+        <from-view-id>index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.manageIssues}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.index}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.addIssue}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/add-issue.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Add Issue -->
+    <navigation-rule>
+        <from-view-id>/issue/add-issue.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.addIssue(issue)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/add-issue.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.cancelIssue}</from-action>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.refreshIssueData}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Delete a issue -->
+    <navigation-rule>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.deleteIssue(issue)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- Edit a issue -->
+    <navigation-rule>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.editIssue(issue)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/edit-issue.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/edit-issue.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.updateIssue(editIssue)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/issue/edit-issue.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{issueManagedBean.cancelIssue}</from-action>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

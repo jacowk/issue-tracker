@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <h:outputStylesheet library="default" name="css/bootstrap.min.css" />
+    <h:outputScript library="default" name="js/bootstrap.min.js" />
+</h:head>
+
+<h:body>
+
+    <div id="page">
+
+        <div id="header" class="container">
+            <ui:insert name="header" >
+                <ui:include src="/template/header.xhtml" />
+            </ui:insert>
+        </div>
+
+        <div id="content" class="container">
+            <ui:insert name="content" >
+                <ui:include src="/template/content.xhtml" />
+            </ui:insert>
+        </div>
+
+        <div id="footer" class="container">
+            <ui:insert name="footer" >
+                <ui:include src="/template/footer.xhtml" />
+            </ui:insert>
+        </div>
+
+    </div>
+
+</h:body>
+</html>
