@@ -1,4 +1,4 @@
-package za.co.issuetracker.issue.domain;
+package za.co.issuetracker.frontend.issue;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -10,9 +10,9 @@ import java.io.Serializable;
  * @author Jaco Koekemoer
  * Date: 2023-01-26
  */
-@ManagedBean(name = "issue")
+@ManagedBean(name = "issueWrapper")
 @RequestScoped
-public class Issue implements Serializable
+public class IssueWrapper implements Serializable
 {
 
     public int id;
@@ -20,11 +20,11 @@ public class Issue implements Serializable
     public String description;
     public String result;
 
-    public Issue()
+    public IssueWrapper()
     {
     }
 
-    public Issue(int id, String heading, String description)
+    public IssueWrapper(int id, String heading, String description)
     {
         this.id = id;
         this.heading = heading;
@@ -74,7 +74,7 @@ public class Issue implements Serializable
     @Override
     public String toString()
     {
-        return "Issue{" +
+        return "IssueWrapper{" +
                 "id=" + id +
                 ", heading='" + heading + '\'' +
                 ", description='" + description + '\'' +

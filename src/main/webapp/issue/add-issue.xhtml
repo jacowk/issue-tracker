@@ -13,20 +13,20 @@
                 <h:form id="manageIssueButtons">
                     <h:panelGrid column="3">
                         Heading:
-                        <h:inputText id="heading" value="#{issue.heading}" required="false" label="Heading" size="20" ajax="true"/>
+                        <h:inputText id="heading" value="#{mockIssueWrapper.heading}" required="false" label="Heading" size="20" ajax="true"/>
                         <h:message for="heading" style="color:red" />
                     </h:panelGrid>
                     <h:panelGrid column="3">
                         Description:
                         <h:inputTextarea id="description"
-                                         value="#{issue.description}"
+                                         value="#{mockIssueWrapper.description}"
                                          required="false"
                                          label="Description"
                                          cols="30"
                                          rows="10"/>
                         <h:message for="heading" style="color:red" />
                     </h:panelGrid>
-                    <h:commandButton action="#{issueManagedBean.addIssue(issue)}" value="Add"/>&nbsp;&nbsp;
+                    <h:commandButton action="#{issueManagedBean.addIssue(mockIssueWrapper)}" value="Add"/>&nbsp;&nbsp;
                     <h:commandButton action="#{issueManagedBean.cancelIssue}" value="Cancel"/>
                 </h:form>
             </ui:define>

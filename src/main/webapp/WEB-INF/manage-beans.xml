@@ -7,12 +7,12 @@
     version="2.0">
 	<managed-bean>
 		<managed-bean-name>pageController</managed-bean-name>
-		<managed-bean-class>za.co.issuetracker.navigation.PageController</managed-bean-class>
+		<managed-bean-class>za.co.issuetracker.frontend.navigation.PageController</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>issueManagedBean</managed-bean-name>
-		<managed-bean-class>za.co.issuetracker.issue.IssueManagedBean</managed-bean-class>
+		<managed-bean-class>za.co.issuetracker.frontend.mockIssueWrapper.IssueManagedBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 </faces-config>

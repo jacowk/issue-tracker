@@ -14,29 +14,29 @@
 
                     <p>We are managing some issues here</p>
 
-                    <h:dataTable value="#{issueManagedBean.getIssueList()}" var="issue" class="table">
+                    <h:dataTable value="#{issueManagedBean.getIssueList()}" var="mockIssueWrapper" class="table">
                         <h:column>
                             <f:facet name="id" class="thead-dark">ID</f:facet>
-                            #{issue.id}
+                            #{mockIssueWrapper.id}
                         </h:column>
                         <h:column>
                             <f:facet name="heading">Heading</f:facet>
-                            #{issue.heading}
+                            #{mockIssueWrapper.heading}
                         </h:column>
                         <h:column>
                             <f:facet name="description">Description</f:facet>
-                            #{issue.description}
+                            #{mockIssueWrapper.description}
                         </h:column>
                         <h:column>
                             <f:facet name="heading">Remove</f:facet>
-                            <h:form id="remove-issue">
-                                <h:commandLink action="#{issueManagedBean.deleteIssue(issue)}" value="Remove" />
+                            <h:form id="remove-mockIssueWrapper">
+                                <h:commandLink action="#{issueManagedBean.deleteIssue(mockIssueWrapper)}" value="Remove" />
                             </h:form>
                         </h:column>
                         <h:column>
                             <f:facet name="heading">Edit</f:facet>
-                            <h:form id="edit-issue">
-                                <h:commandLink action="#{issueManagedBean.editIssue(issue)}" value="Edit" />
+                            <h:form id="edit-mockIssueWrapper">
+                                <h:commandLink action="#{issueManagedBean.editIssue(mockIssueWrapper)}" value="Edit" />
                             </h:form>
                         </h:column>
                     </h:dataTable>

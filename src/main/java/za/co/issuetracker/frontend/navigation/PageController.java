@@ -1,4 +1,4 @@
-package za.co.issuetracker.navigation;
+package za.co.issuetracker.frontend.navigation;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
