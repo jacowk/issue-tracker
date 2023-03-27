@@ -13,16 +13,74 @@
 	</managed-bean>
 	 -->
 
+    <!-- ======================= Manage Users Component ======================= -->
+    <!-- This navigation rule is used when the user clicks on the Manage Users menu item -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.manageUsers}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/user/manage-users.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- This navigation rule is used when the user clicks on the Back button on the
+     manage-users.xhtml page -->
+    <navigation-rule>
+        <from-view-id>/issue/manage-users.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.index}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- This navigation rule is used when the user clicks on the Add User button on the
+     manage-users.xhtml page -->
+    <navigation-rule>
+        <from-view-id>/user/manage-users.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pageController.addUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/user/add-user.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- This navigation rule is used to add a user, when the user clicks on the Add button in
+     add-user.xhtml. -->
+    <navigation-rule>
+        <from-view-id>/user/add-user.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userManagedBean.addUser(userWrapper)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/user/manage-users.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!-- This navigation rule is used to cancel adding a user, when the user clicks on the Cancel button in
+     add-user.xhtml. -->
+    <navigation-rule>
+        <from-view-id>/user/add-user.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userManagedBean.cancelAddUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/user/manage-users.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!-- ======================= Manage Issues Component ======================= -->
+    <!-- Manage Issues -->
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{pageController.manageIssues}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/manage-issues.xhtml</from-view-id>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{pageController.index}</from-action>
             <from-outcome>success</from-outcome>
@@ -30,73 +88,73 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/manage-issues.xhtml</from-view-id>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{pageController.addIssue}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/add-mockIssueWrapper.xhtml</to-view-id>
+            <to-view-id>/issue/add-issue.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
-    <!-- Add IssueWrapper -->
+    <!-- Add an issue -->
     <navigation-rule>
-        <from-view-id>/mockIssue/add-mockIssueWrapper.xhtml</from-view-id>
+        <from-view-id>/issue/add-issue.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{issueManagedBean.addIssue(mockIssueWrapper)}</from-action>
+            <from-action>#{issueManagedBean.addIssue(issueWrapper)}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/add-mockIssueWrapper.xhtml</from-view-id>
+        <from-view-id>/issue/add-issue.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{issueManagedBean.cancelIssue}</from-action>
             <from-outcome>cancel</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/manage-issues.xhtml</from-view-id>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{issueManagedBean.refreshIssueData}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
-    <!-- Delete a mockIssueWrapper -->
+    <!-- Delete an isssue -->
     <navigation-rule>
-        <from-view-id>/mockIssue/manage-issues.xhtml</from-view-id>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{issueManagedBean.deleteIssue(mockIssueWrapper)}</from-action>
+            <from-action>#{issueManagedBean.deleteIssue(issueWrapper)}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
-    <!-- Edit a mockIssueWrapper -->
+    <!-- Edit an issue -->
     <navigation-rule>
-        <from-view-id>/mockIssue/manage-issues.xhtml</from-view-id>
+        <from-view-id>/issue/manage-issues.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{issueManagedBean.editIssue(mockIssueWrapper)}</from-action>
+            <from-action>#{issueManagedBean.editIssue(issueWrapper)}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/edit-mockIssueWrapper.xhtml</to-view-id>
+            <to-view-id>/issue/edit-issueWrapper.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/edit-mockIssueWrapper.xhtml</from-view-id>
+        <from-view-id>/issue/edit-issue.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{issueManagedBean.updateIssue(editIssue)}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/mockIssue/edit-mockIssueWrapper.xhtml</from-view-id>
+        <from-view-id>/issue/edit-issue.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{issueManagedBean.cancelIssue}</from-action>
             <from-outcome>cancel</from-outcome>
-            <to-view-id>/mockIssue/manage-issues.xhtml</to-view-id>
+            <to-view-id>/issue/manage-issues.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

@@ -33,6 +33,8 @@ public class User extends AbstractValueObject
     @Column(name = "password", nullable = false)
     private String password;
 
+    private boolean active;
+
     /**
      * Default constructor
      */
@@ -51,6 +53,25 @@ public class User extends AbstractValueObject
     {
         this.firstname = firstname;
         this.surname = surname;
+    }
+
+    /**
+     * Constructor for firstname, surname, username, password, active
+     *
+     * @param firstname
+     * @param surname
+     * @param username
+     * @param password
+     * @param active
+     */
+    public User(Long id, String firstname, String surname, String username, String password,
+                boolean active)
+    {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.username = username;
+        this.password = password;
+        this.active = active;
     }
 
     public Long getId()

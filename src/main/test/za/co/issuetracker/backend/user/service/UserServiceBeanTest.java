@@ -33,6 +33,7 @@ public class UserServiceBeanTest extends AbstractTest
         user.setSurname(surname);
         user.setUsername(username);
         user.setPassword(password);
+        user.setActive(true);
         user.setCreateUser(user);
         user.setCreateDate(new Date());
 

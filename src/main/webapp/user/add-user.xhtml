@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:body>
+        <ui:composition template="../template/template.xhtml">
+            <ui:define name="content">
+                <div class="text-center">
+                    <h3>Add User</h3>
+                    <h:form id="add-user-form">
+                        <!-- https://getbootstrap.com/docs/4.3/components/forms/ -->
+                        <h:panelGrid columns="3">
+                            <h:outputText value="Firstname:" />
+                            <h:inputText id="user-firstname-heading"
+                                         value="#{userWrapper.firstname}"
+                                         required="false"
+                                         label="Heading"
+                                         size="20"
+                                         ajax="true"/>
+                            <h:message for="user-firstname-heading" style="color:red" />
+
+                            <h:outputText value="Surname:" />
+                            <h:inputText id="user-surname-heading"
+                                         value="#{userWrapper.surname}"
+                                         required="false"
+                                         label="Heading"
+                                         size="20"
+                                         ajax="true"/>
+                            <h:message for="user-surname-heading" style="color:red" />
+
+                            <h:outputText value="Username:" />
+                            <h:inputText id="user-username-heading"
+                                         value="#{userWrapper.username}"
+                                         required="false"
+                                         label="Heading"
+                                         size="20"
+                                         ajax="true"/>
+                            <h:message for="user-username-heading" style="color:red" />
+
+                            <h:outputText value="Password:" />
+                            <h:inputSecret id="user-password-heading"
+                                           value="#{userWrapper.password}"
+                                           required="false"
+                                           label="Heading"
+                                           size="20"
+                                           ajax="true"/>
+                            <h:message for="user-password-heading" style="color:red" />
+
+                            <h:outputText value="Active:" />
+                            <h:selectBooleanCheckbox id="user-active-heading" value="#{userWrapper.active}" ajax="true" />
+                        </h:panelGrid>
+                        <h:commandButton action="#{userManagedBean.addUser(userWrapper)}" value="Add"/>&nbsp;&nbsp;
+                        <h:commandButton action="#{userManagedBean.cancelAddUser}" value="Cancel"/>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

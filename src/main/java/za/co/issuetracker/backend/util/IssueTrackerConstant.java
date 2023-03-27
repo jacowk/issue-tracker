@@ -27,4 +27,5 @@ public enum IssueTrackerConstant
     {
         this.value = value;
     }
+
 }

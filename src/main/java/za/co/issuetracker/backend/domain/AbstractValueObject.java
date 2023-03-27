@@ -21,21 +21,29 @@ import java.util.Date;
 public class AbstractValueObject implements Serializable
 {
 
+    private boolean active;
     @ManyToOne
     @JoinColumn(name = "create_user_id")
     private User createUser;
-
     @Column(name = "create_user_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
-
     @ManyToOne
     @JoinColumn(name = "modify_user_id")
     private User modifyUser;
-
     @Column(name = "modify_user_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date modifyDate;
+
+    public boolean isActive()
+    {
+        return active;
+    }
+
+    public void setActive(boolean active)
+    {
+        this.active = active;
+    }
 
     public User getCreateUser()
     {

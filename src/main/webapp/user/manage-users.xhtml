@@ -9,41 +9,42 @@
     <h:body>
         <ui:composition template="../template/template.xhtml">
             <ui:define name="content">
-                <div class="container my-4 text-center">
-                    <h3>Manage Issues</h3>
+                <div class="text-center">
+                    <h3>Manage Users</h3>
 
-                    <p>We are managing some issues here</p>
-
-                    <h:dataTable value="#{issueManagedBean.getIssueList()}" var="issueWrapper" class="table">
+                    <h:dataTable value="#{userManagedBean.getUserList()}" var="userWrapper" class="table">
                         <h:column>
                             <f:facet name="id" class="thead-dark">ID</f:facet>
-                            #{issueWrapper.id}
+                            #{userWrapper.id}
                         </h:column>
                         <h:column>
-                            <f:facet name="heading">Heading</f:facet>
-                            #{issueWrapper.heading}
+                            <f:facet name="heading">Firstname</f:facet>
+                            #{userWrapper.firstname}
                         </h:column>
                         <h:column>
-                            <f:facet name="description">Description</f:facet>
-                            #{issueWrapper.description}
+                            <f:facet name="heading">Surname</f:facet>
+                            #{userWrapper.surname}
                         </h:column>
                         <h:column>
-                            <f:facet name="heading">Remove</f:facet>
-                            <h:form id="remove-issue">
-                                <h:commandLink action="#{issueManagedBean.deleteIssue(issueWrapper)}" value="Remove" />
+                            <f:facet name="heading">Active</f:facet>
+                            #{userWrapper.activeString}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="heading">Deactivate</f:facet>
+                            <h:form id="deactivate-issue">
+                                <h:commandLink action="#{userManagedBean.deactivateUser(userWrapper)}" value="Deactivate" />
                             </h:form>
                         </h:column>
                         <h:column>
                             <f:facet name="heading">Edit</f:facet>
                             <h:form id="edit-issue">
-                                <h:commandLink action="#{issueManagedBean.editIssue(issueWrapper)}" value="Edit" />
+                                <h:commandLink action="#{userManagedBean.editUser(userWrapper)}" value="Edit" />
                             </h:form>
                         </h:column>
                     </h:dataTable>
                     <br/><br/>
                     <h:form>
-                        <h:commandButton action="#{pageController.addIssue}" value="Add Issue"/>&nbsp;&nbsp;
-                        <h:commandButton action="#{issueManagedBean.refreshIssueData}" value="Refresh Issue Data"/>
+                        <h:commandButton action="#{pageController.addUser}" value="Add User"/>&nbsp;&nbsp;
                     </h:form>
                 </div>
             </ui:define>

@@ -9,26 +9,28 @@
     <h:body>
         <ui:composition template="../template/template.xhtml">
             <ui:define name="content">
-                <h3>Add Issue</h3>
-                <h:form id="manageIssueButtons">
-                    <h:panelGrid column="3">
-                        Heading:
-                        <h:inputText id="heading" value="#{mockIssueWrapper.heading}" required="false" label="Heading" size="20" ajax="true"/>
-                        <h:message for="heading" style="color:red" />
-                    </h:panelGrid>
-                    <h:panelGrid column="3">
-                        Description:
-                        <h:inputTextarea id="description"
-                                         value="#{mockIssueWrapper.description}"
-                                         required="false"
-                                         label="Description"
-                                         cols="30"
-                                         rows="10"/>
-                        <h:message for="heading" style="color:red" />
-                    </h:panelGrid>
-                    <h:commandButton action="#{issueManagedBean.addIssue(mockIssueWrapper)}" value="Add"/>&nbsp;&nbsp;
-                    <h:commandButton action="#{issueManagedBean.cancelIssue}" value="Cancel"/>
-                </h:form>
+                <div class="container">
+                    <h3>Add Issue</h3>
+                    <h:form id="add-issue-form">
+                        <h:panelGrid column="3">
+                            Heading:
+                            <h:inputText id="heading" value="#{issueWrapper.heading}" required="false" label="Heading" size="20" ajax="true"/>
+                            <h:message for="heading" style="color:red" />
+                        </h:panelGrid>
+                        <h:panelGrid column="3">
+                            Description:
+                            <h:inputTextarea id="description"
+                                             value="#{issueWrapper.description}"
+                                             required="false"
+                                             label="Description"
+                                             cols="30"
+                                             rows="10"/>
+                            <h:message for="heading" style="color:red" />
+                        </h:panelGrid>
+                        <h:commandButton action="#{issueManagedBean.addIssue(issueWrapper)}" value="Add"/>&nbsp;&nbsp;
+                        <h:commandButton action="#{issueManagedBean.cancelIssue}" value="Cancel"/>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

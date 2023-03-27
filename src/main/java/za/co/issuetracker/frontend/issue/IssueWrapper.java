@@ -5,7 +5,7 @@ import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
 
 /**
- * A domain object representing an issue
+ * A wrapper object representing an issue
  *
  * @author Jaco Koekemoer
  * Date: 2023-01-26

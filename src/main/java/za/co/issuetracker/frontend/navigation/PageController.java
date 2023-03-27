@@ -1,5 +1,7 @@
 package za.co.issuetracker.frontend.navigation;
 
+import za.co.issuetracker.frontend.util.IssueTrackerUIConstants;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
@@ -16,7 +18,27 @@ public class PageController implements Serializable
      */
     public String index()
     {
-        return "success";
+        return IssueTrackerUIConstants.SUCCESS_NAVIGATION.getValue();
+    }
+
+    /**
+     * List all the users
+     *
+     * @return
+     */
+    public String manageUsers()
+    {
+        return IssueTrackerUIConstants.SUCCESS_NAVIGATION.getValue();
+    }
+
+    /**
+     * Add a user
+     *
+     * @return
+     */
+    public String addUser()
+    {
+        return IssueTrackerUIConstants.SUCCESS_NAVIGATION.getValue();
     }
 
     /**
@@ -26,7 +48,7 @@ public class PageController implements Serializable
      */
     public String manageIssues()
     {
-        return "success";
+        return IssueTrackerUIConstants.SUCCESS_NAVIGATION.getValue();
     }
 
     /**
@@ -36,7 +58,7 @@ public class PageController implements Serializable
      */
     public String addIssue()
     {
-        return "success";
+        return IssueTrackerUIConstants.SUCCESS_NAVIGATION.getValue();
     }
 
 }

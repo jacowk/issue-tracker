@@ -5,34 +5,34 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head>
-    <h:outputStylesheet library="default" name="css/bootstrap.min.css" />
-    <h:outputScript library="default" name="js/bootstrap.min.js" />
-</h:head>
+    <h:head>
+        <h:outputStylesheet library="default" name="css/bootstrap.min.css" />
+        <!--<h:outputScript library="default" name="js/bootstrap.min.js" />-->
+    </h:head>
 
-<h:body>
+    <h:body>
 
-    <div id="page">
+        <div id="page">
 
-        <div id="header" class="container">
-            <ui:insert name="header" >
-                <ui:include src="/template/header.xhtml" />
-            </ui:insert>
+            <div id="header" class="container">
+                <ui:insert name="header" >
+                    <ui:include src="/template/header.xhtml" />
+                </ui:insert>
+            </div>
+
+            <div id="content" class="container my-4">
+                <ui:insert name="content" >
+                    <ui:include src="/template/content.xhtml" />
+                </ui:insert>
+            </div>
+
+            <div id="footer" class="container">
+                <ui:insert name="footer" >
+                    <ui:include src="/template/footer.xhtml" />
+                </ui:insert>
+            </div>
+
         </div>
 
-        <div id="content" class="container">
-            <ui:insert name="content" >
-                <ui:include src="/template/content.xhtml" />
-            </ui:insert>
-        </div>
-
-        <div id="footer" class="container">
-            <ui:insert name="footer" >
-                <ui:include src="/template/footer.xhtml" />
-            </ui:insert>
-        </div>
-
-    </div>
-
-</h:body>
+    </h:body>
 </html>
